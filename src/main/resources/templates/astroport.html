@@ -1,0 +1,151 @@
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Welcome at MiniYose</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+<body>
+<style>
+    body{
+        margin: 0;
+    }
+
+    header{
+        background-color: #222222;
+        color: #68A343;
+        height: 100px;
+        margin-bottom: 1.5em;
+    }
+
+    header h1{
+        padding: 20px;
+        margin: 0;
+        width: auto;
+        float: left;
+    }
+
+    .externalbar-list{
+        float: right;
+        list-style-type: none;
+        text-align: center;
+        height: 100%;
+        margin: 0;
+    }
+
+    .externalbar-item{
+        margin: 0;
+        float: left;
+        margin: 0 10px 0 10px;
+        height: 100%;
+    }
+
+    .externalbar-item a{
+        color: #68A343;
+        display: inline-block;
+        width: 90px;
+        height: 100%;
+        text-decoration: none;
+    }
+
+    .externalbar-item a:hover{
+        background-color: #68A343;
+        color: #222222;
+    }
+
+    .externalbar-item i{
+        padding-top: 20px;
+        line-height: 1em;
+        font-size: 2em;
+    }
+
+    .content{
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+</style>
+<header class="row">
+    <h1>Hello Yose</h1>
+    <div class="externalbar">
+        <ul class="externalbar-list">
+            <li class="externalbar-item"><a id="repository-link" href="https://github.com/MiniKeb/MiniYose"><i class="fa fa-github"></i><br/>Repository</a></li>
+            <li class="externalbar-item"><a id="contact-me-link" href="https://twitter.com/minikeb"><i class="fa fa-envelope"></i><br/>Contact</a></li>
+        </ul>
+    </div>
+</header>
+<div class="content">
+    <style type="text/css">
+        .row
+        {
+            margin-bottom: 1em;
+        }
+
+        .gate
+        {
+            padding: 15px;
+            border: 1px solid #888888;
+            border-radius: 5px;
+        }
+
+        .free
+        {
+            background-color: #CCFFCC;
+        }
+
+        .occupied
+        {
+            background-color: #FFFCCC;
+        }
+
+        .info
+        {
+            padding: 15px;
+            background-color: #99CCFF;
+            border-radius: 5px;
+        }
+
+        .hidden
+        {
+            display: none;
+        }
+    </style>
+    <script>
+        function shipChanged(){
+            var infoSection = document.getElementById("info");
+            var cssClassAttr = infoSection.getAttribute("class");
+            var classes = cssClassAttr.split(" ");
+            var hiddenPosition = classes.indexOf("hidden");
+            if(hiddenPosition === -1)
+                classes.push("hidden");
+
+            infoSection.setAttribute("class", classes.join(" "));
+        }
+    </script>
+
+    <h1 id="astroport-name">Astroport</h1>
+
+    <div class="row">
+        <div id="gate-1" class="four columns gate free">
+            Gate 1 : <span id="ship-1"></span>
+        </div>
+        <div id="gate-2" class="four columns gate free">
+            Gate 2 : <span id="ship-2"></span>
+        </div>
+        <div id="gate-3" class="four columns gate free">
+            Gate 3 : <span id="ship-3"></span>
+        </div>
+    </div>
+    <div class="row">
+        <form  action="/astroport" method="GET">
+            <input id="ship" name="ship" type="text" class="u-full-width" placeholder="Shipname ..." onkeyup="shipChanged()" onchange="shipChanged()" />
+            <button id="dock" type="submit" class="button-primary">Dock</button>
+        </form>
+    </div>
+    <section id="info" class="row info hidden">
+        Ship is added to Gate 1.
+    </section>
+</div>
+</body>
+</html>
