@@ -1,6 +1,5 @@
 var express = require("express");
 var router = express.Router();
-//var run = require(__dirname + "/astroport.js");
 
 router.get("/", function(request, response){
 	var shipname = request.param("ship");
