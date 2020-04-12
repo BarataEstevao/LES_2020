@@ -38,5 +38,12 @@ public class HomeController {
 
 
 
+    @GetMapping("/ primeFactors?")
+    public ModelAndView primeFactors(){
+
+        ModelAndView model = new ModelAndView("primeFactors");
+        return model;
+    }
+
 
 }
