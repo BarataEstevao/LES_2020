@@ -15,6 +15,26 @@ public class HomeController {
         return model;
     }
 
+    public  String number(int numbe) {
+        int soma = 2;
+        String x="2";
+        while (numbe>= soma) {
+            x = x+"x"+2;
+            soma=soma+2;
+        }
+        return x;
+    }
+
+
+
+    @GetMapping("/primeFactors?numero")
+    public ModelAndView  primeFacto(){
+        ModelAndView model = new ModelAndView("primeFactors?");
+        model.addObject("message",number(208));
+
+        return model;
+    }
+
     @GetMapping("/leame")
     public ModelAndView leame(){
 
