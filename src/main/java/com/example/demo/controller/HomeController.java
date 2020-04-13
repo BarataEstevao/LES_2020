@@ -45,5 +45,13 @@ public class HomeController {
         return model;
     }
 
+    @GetMapping(" / minasminweeper")
+    public ModelAndView minasminweeper(){
+
+        ModelAndView model = new ModelAndView("minasminweeper");
+        return model;
+    }
+
+
 
 }
