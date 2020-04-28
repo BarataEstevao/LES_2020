@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>astroport</title>
+</head>
+<body>
+
+<div id="resultado"></div>
+
+<script>
+
+    function shipChanged(){
+
+        var infoSection = document.getElementById("info");
+        var cssClassAttr = infoSection.getAttribute("class");
+        var classes = cssClassAttr.split(" ");
+        var hiddenPosition = classes.indexOf("hidden");
+        if(hiddenPosition === -1)
+            classes.push("hidden");
+
+        infoSection.setAttribute("class", classes.join(" "));
+    }
+
+</script>
+
+<h1 id="astroport-name">Astroport</h1>
+
+<div class="row">
+    <div id="gate-1">
+        Gate 1 : <span id="ship-1">{{ship2}}}</span>
+    </div>
+    <div id="gate-2">
+        Gate 2 : <span id="ship-2"></span>
+    </div>
+    <div id="gate-3">
+        Gate 3 : <span id="ship-3"></span>
+    </div>
+</div>
+<div class="row">
+    <form  action="astroport.html" method="GET">
+        <input id="ship1" name="ship2" type="text" class="u-full-width" placeholder="Shipname ..." onkeyup="shipChanged()" onchange="shipChanged()" />
+        <button id="dock" type="submit" class="button-primary" >Dock</button>
+    </form>
+</div>
+</div>
+</body>
+</html>
